@@ -10,11 +10,10 @@
       "**/node_modules/**"
     ],
     "frameworksBackend": {
-      "region": "europe-west1",
-      "minInstances": 0,
-      "maxInstances": 3
+      "region": "europe-west1"
     }
   },
+  "extensions": {},
   "emulators": {
     "functions": {
       "port": 5001
@@ -31,5 +30,16 @@
     "ui": {
       "enabled": true
     }
+  },
+  "apphosting": {
+    "backendId": "five-stars",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions"
+    ]
   }
 }

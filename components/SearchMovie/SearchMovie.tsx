@@ -13,7 +13,7 @@ export default function SearchMovie() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<{ value: string; id: number; img: string | null; year: string }[]>([]);
   const [empty, setEmpty] = useState(false);
-  const abortController = useRef<AbortController>();
+  const abortController = useRef<AbortController>(undefined);
 
   useEffect(() => {
     abortController.current?.abort();

@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7",
-    "@types/mime": "^4",
-    "@types/node": "^22",
+    "@types/mime": "^4.0.0",
+    "@types/node": "^24",
     "@types/react": "19.1.8",
     "eslint": "^8",
     "eslint-config-next": "15.4.1",

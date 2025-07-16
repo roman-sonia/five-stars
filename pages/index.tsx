@@ -32,7 +32,7 @@ export default function Home({ posts }) {
         <SearchMovie/>
 
         <Grid gutter="lg">
-          {posts.results.map(movie => (
+          {posts.results?.map(movie => (
             <Grid.Col span={{ base: 6, lg: 4 }} key={movie.id}>
               <MovieCard movie={movie} user={user}/>
             </Grid.Col>

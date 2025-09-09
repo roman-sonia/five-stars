@@ -4,4 +4,7 @@ module.exports = {
     path: 'https://five-stars-folder.imgix.net',
   },
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
 }

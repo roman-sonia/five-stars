@@ -2,19 +2,32 @@ import { Grid } from '@mantine/core';
 import { getPerformance } from "firebase/performance";
 import Head from 'next/head';
 import React from "react";
+import useSWR from 'swr';
 import MovieCard from "../components/MovieCard/MovieCard";
 import SearchMovie from "../components/SearchMovie/SearchMovie";
 import firebaseApp from '../lib/firebase';
 import { useAuth } from "../lib/firebase.auth";
 import styles from '../styles/Home.module.css';
 
-if (process.browser) {
+if (typeof window !== 'undefined') {
   getPerformance(firebaseApp);
 }
 
-export default function Home({ posts }) {
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Failed to fetch');
+  return res.json();
+};
 
+export default function Home() {
   const { user } = useAuth();
+  const { data: posts, error } = useSWR(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_MOVIEDB_API_KEY}`,
+    fetcher
+  );
+
+  if (error) return <div>Failed to load movies</div>;
+  if (!posts) return <div>Loading...</div>;
 
   return (
     <div className={styles.container}>
@@ -41,12 +54,4 @@ export default function Home({ posts }) {
       </main>
     </div>
   )
-}
-
-export async function getStaticProps({ preview = null }) {
-  const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=' + process.env.NEXT_PUBLIC_MOVIEDB_API_KEY);
-  const posts = await res.json();
-  return {
-    props: { posts, preview },
-  }
 }

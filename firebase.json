@@ -3,15 +3,12 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "source": ".",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "europe-west1"
-    }
+    ]
   },
   "extensions": {},
   "emulators": {
@@ -30,7 +27,8 @@
     "ui": {
       "enabled": true
     }
-  },
+  }
+},
   "apphosting": {
     "backendId": "five-stars",
     "rootDir": "/",
@@ -42,4 +40,3 @@
       "functions"
     ]
   }
-}

@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,7 +17,6 @@
     "@tabler/icons-react": "^3",
     "firebase": "^12",
     "firebase-admin": "^13",
-    "firebase-frameworks": "^0.11",
     "next": "^15.5.2",
     "react": "19.1.1",
     "react-dom": "19.1.1",

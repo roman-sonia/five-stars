@@ -11,7 +11,7 @@ jobs:
       contents: read
       checks: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: npm install && npm run build
         env:
           NEXT_PUBLIC_MOVIEDB_API_KEY: ${{ secrets.MOVIEDB_API_KEY }}
